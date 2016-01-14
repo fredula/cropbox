@@ -13,6 +13,7 @@ var cropbox = function(options){
         thumbBox : el.querySelector(options.thumbBox),
         spinner : el.querySelector(options.spinner),
         image : new Image(),
+        isDesktop : true,
         getDataURL: function ()
         {
             var width = this.thumbBox.clientWidth,
@@ -139,8 +140,10 @@ var cropbox = function(options){
         attachEvent(el, 'mousedown', imgMouseDown);
         attachEvent(el, 'mousemove', imgMouseMove);
         attachEvent(document.body, 'mouseup', imgMouseUp);
-        var mousewheel = (/Firefox/i.test(navigator.userAgent))? 'DOMMouseScroll' : 'mousewheel';
-        attachEvent(el, mousewheel, zoomImage);
+        if(obj.isDesktop){
+            var mousewheel = (/Firefox/i.test(navigator.userAgent))? 'DOMMouseScroll' : 'mousewheel';
+            attachEvent(el, mousewheel, zoomImage);
+        }        
     };
     obj.image.src = options.imgSrc;
     attachEvent(el, 'DOMNodeRemoved', function(){detachEvent(document.body, 'DOMNodeRemoved', imgMouseUp)});

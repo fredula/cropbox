@@ -7,6 +7,9 @@ A lightweight and simple JavaScript, Jquery, YUI plugin to crop your avatar.
 - support dataUrl for displaying image (function getDataURL)
 - support Blob for uploading image (function getBlob)
 
+## Added
+- 2016_01_14 - isDesktop property. Checks if coming from mobile device. Removes zooming if true.
+
 ##Screenshot
 ![ScreenShot](/screenshot.jpg)
 
